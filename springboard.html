@@ -1,0 +1,15 @@
+<html>
+  <body>
+    <form id="springboard" action="https://login.microsoftonline.com/common/oauth2/deviceauth" method="POST">
+      <input id="code" type="text" name="code"></input>
+      <input type="submit"></input>
+    </form>
+  <script>
+  var qp = new URLSearchParams(window.location.search);
+  if(qp.has("code")) {
+    document.getElementById("code").value = qp.get("code");
+    document.getElementById("springboard").submit();
+  }
+  </script>
+  </body>
+</html>
