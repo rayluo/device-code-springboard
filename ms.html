@@ -6,8 +6,8 @@
     </form>
   <script>
   var qp = new URLSearchParams(window.location.search);
-  if(qp.has("code")) {
-    document.getElementById("code").value = qp.get("code");
+  if(qp.has("c")) {
+    document.getElementById("code").value = qp.get("c");
     document.getElementById("springboard").submit();
   }
   </script>
