@@ -1,14 +1,42 @@
 <html>
+
+  <!--
+  Quoted from https://tools.ietf.org/html/draft-ietf-oauth-device-flow-15#section-5.4
+
+  "it is particularly important to confirm that the
+  device is in the user's possession, as the user no longer has to type
+  the code manually.  One possibility is to display the code during the
+  authorization flow and asking the user to verify that the same code
+  is being displayed on the device they are setting up."
+
+  -->
+  <head>
+  <style>
+  body {text-align: center;}
+  input {
+    font-size: 200%;
+    text-align: center;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+  </style>
+  </head>
+
   <body>
+    Please verify the code below matches what is displayed on the device you are trying to sign in
     <form id="springboard" action="https://login.microsoftonline.com/common/oauth2/deviceauth" method="POST">
       <input id="code" type="text" name="otc"></input>
-      <input type="submit"></input>
+      <br/>
+      <input type="submit" value="Yes they match"></input>
     </form>
+    Otherwise, you should leave this page.
+
   <script>
   var qp = new URLSearchParams(window.location.search);
   if(qp.has("c")) {
     document.getElementById("code").value = qp.get("c");
-    document.getElementById("springboard").submit();
+    //document.getElementById("springboard").submit();
   }
   </script>
   </body>
